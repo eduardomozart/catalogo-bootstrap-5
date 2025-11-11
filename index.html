@@ -4,13 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Catálogo Digital | Projeto Bootstrap</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <link href="style.css" rel="stylesheet">
 </head>
-<body>
+<!-- As classes abaixo, junto com .flex-grow-1 no .container,
+posicionam o rodapé no final da página. -->
+<body class="d-flex flex-column min-vh-100">
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg">
         <div class="container-fluid">
@@ -54,10 +56,10 @@
         </div>
     </nav>
     
-    <div class="container mt-5">
+    <div class="container mt-5 flex-grow-1">
         <h1 class="mb-4 text-center">Destaques do Mês</h1>
         <div class="row" id="catalogo-container">
-
+            
             <!-- Item 1: Livros -->
             <!-- Exibe 4 colunas em computadores, 3 colunas em tablets e 2 colunas em celulares. -->
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4 item-catalogo" data-categoria="livros">
@@ -69,7 +71,7 @@
                         <p class="card-text flex-grow-1">Descrição curta do produto ou item do catálogo.</p>
                     </div>
                     <div class="card-footer bg-light border-top-0 d-grid">
-                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#detalheModal">
+                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#detalheModal" data-item-id="1">
                             <i class="bi bi-search"></i> Ver Detalhes
                         </button>
                     </div>
@@ -79,7 +81,7 @@
             <!-- Item 2: Artesanato -->
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4 item-catalogo" data-categoria="artesanato">
                 <div class="card h-100 shadow-sm rounded-3">
-                    <img src="https://placehold.co/400x300/e879f9/ffffff?text=ARTE" class="card-img-top rounded-t-3" alt="Título do Item 2">
+                    <img src="https://placehold.co/400x300/e879f9/ffffff?text=ARTE" class="card-img-top rounded-t-3" alt="Título do Item 2" data-item-id="2">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-success">Título do Item 2</h5>
                         <p class="card-text text-muted">Categoria: Artesanato</p>
@@ -102,7 +104,7 @@
                         <p class="card-text flex-grow-1">Terceiro item de destaque.</p>
                     </div>
                     <div class="card-footer bg-light border-top-0 d-grid">
-                        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#detalheModal">
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#detalheModal" data-item-id="3">
                             <i class="bi bi-search"></i> Ver Detalhes
                         </button>
                     </div>
@@ -118,7 +120,7 @@
                         <p class="card-text flex-grow-1">Quarto item de destaque.</p>
                     </div>
                     <div class="card-footer bg-light border-top-0 d-grid">
-                        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#detalheModal">
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#detalheModal" data-item-id="4">
                             <i class="bi bi-search"></i> Ver Detalhes
                         </button>
                     </div>
@@ -133,11 +135,11 @@
     </footer>
     
     <!-- Modal de Detalhes -->
-    <div class="modal fade" id="detalheModal" tabindex="-1" aria-labelledby="detalheModalLabel" aria-hidden="true">
+    <div class="modal fade" id="detalheModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title" id="detalheModalLabel">Detalhes do Item</h5>
+                    <h5 class="modal-title">Detalhes do Item</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
